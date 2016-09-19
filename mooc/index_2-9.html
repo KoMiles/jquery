@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="imooc.css" type="text/css">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+</head>
+
+<body>
+<h2>test</h2>
+<h3>type-hidden</h3>
+<div class="left">
+    <div class="div">
+        <input type="text" name="username"><br/>
+        <input type="password" name="password">
+        <input type="hidden" name="sex" value="man">333
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    //获取type为hidden的元素
+    $(document).ready(
+            function () {
+                var a = $("input:hidden").val()
+                alert(a);
+            }
+    );
+</script>
+
+
+</body>
+
+</html>

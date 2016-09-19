@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>jquery和document相互转化</title>
+        <script src="./jquery.js"></script>
+    </head>
+
+    <body>
+        <div>元素一</div>
+        <div>元素二</div>
+        <div>元素三</div>
+
+        <script type="text/javascript">
+            var $div = $('div'); //jQuery对象
+            //? div = ?
+//            div = $div[0];
+            div = $div.get(1);
+            div.style.color = 'red'; //操作dom对象的属性
+        </script>
+
+    </body>
+
+</html>
