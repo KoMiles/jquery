@@ -1,0 +1,30 @@
+<html>
+<head>
+<script type="text/javascript" src="jquery.js"></script>
+<style type="text/css">
+	img {
+		width: 100px;
+		height: 50px;
+	}
+</style>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$("button").click(function(){
+		// a = $("img").width();
+		// alert(a);
+		$("img").after($("p"));
+		$("p").html("hello world");
+		$("p").append("<li>this is li</li>");
+	})
+});
+
+</script>
+</head>
+
+<body>
+<p>this is p</p>
+<img src="http://a1-q.mafengwo.net/s9/M00/BA/E9/wKgBs1Zb1QyAJCfxAAnze8eqkyc65.jpeg?imageMogr2%2Fthumbnail%2F%21440x300r%2Fgravity%2FCenter%2Fcrop%2F%21440x300%2Fquality%2F90"/>
+<button type="button">show</button>
+</body>
+</html>
