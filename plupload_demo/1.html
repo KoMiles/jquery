@@ -23,6 +23,13 @@ console.log(1);
         url : 'http://wangkongming.cn/api/upload.php', //服务器端的上传页面地址
         flash_swf_url : 'js/Moxie.swf', //swf文件，当需要使用swf方式进行上传时需要配置该参数
         // silverlight_xap_url : 'js/Moxie.xap' //silverlight文件，当需要使用silverlight方式进行上传时需要配置该参数
+        resize: {
+		  width: 300,
+		  height: 200,
+		  crop: true,
+		  quality: 60,
+		  preserve_headers: false
+		}
         
     });    
 
