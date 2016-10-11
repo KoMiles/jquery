@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link  href="./js/cropper.min.css" rel="stylesheet">
+    <style>
+        img {
+            max-width: 100%; /* This rule is very important, please do not ignore this! */
+        }
+
+        .prev{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="image" src="66666.jpeg">
+    </div>
+
+    <br><br>
+
+    <!--crop是对剪切窗口的操作，move是对图片的操作-->
+    <div>
+    111222
+        <input type="button" value="crop" id="btnCrop" />
+        <input type="button" value="move" id="btnMove" />
+        <input type="button" value="16:9" id="169">
+        <input type="button" value="1:1" id="11">
+        <input type="button" value="get" id="getCanvas">
+    </div>
+
+    <br><br>
+
+    <!--图片截取的结果显示在这里-->
+    <div class="prev" style="width: 500px; height: 500px; overflow: hidden"></div>
+    <div class="prev" style="width: 300px; height: 300px; overflow: hidden"></div>
+    <div class="prev" style="width: 200px; height: 200px; overflow: hidden"></div>
+    <div class="prev" style="width: 100px; height: 100px; overflow: hidden"></div>
+
+    <br><br>
+
+    <div id="getCroppedCanvas" style="width:500px; height:500px; overflow:hidden;"></div>
+
+
+    <script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="./js/cropper.min.js"></script>
+    <script>
+        $(function(){
+             $('#image').cropper({
+                checkImageOrigin: true,
+                preview: '.prev',  //预览窗口
+                guides: false,  //裁剪框的虚线
+                autoCropArea: 0.5,  //0-1之间的数值，定义自动剪裁区域的大小，默认0.8
+                dragCrop: true,  //是否允许移除当前的剪裁框，并通过拖动来新建一个剪裁框区域
+                movable: true,  //是否允许移动剪裁框
+                resizable: true,  //是否允许改变裁剪框的大小
+                zoomable: true,  //是否允许缩放图片大小
+                mouseWheelZoom: true,  //是否允许通过鼠标滚轮来缩放图片
+                touchDragZoom: true,  //是否允许通过触摸移动来缩放图片
+                rotatable: true,  //是否允许旋转图片
+                minContainerWidth: 300,  //容器的最小宽度
+                minContainerHeight: 200,  //容器的最小高度
+                minCanvasWidth: 0,  //canvas 的最小宽度（image wrapper）
+                minCanvasHeight: 0,  //canvas 的最小高度（image wrapper）
+                strict: true,
+                crop: function(e) {
+                    console.log(e);
+                    // 出来裁切后的图片数据.
+                    console.log(e.x);
+                    console.log(e.y);
+                    console.log(e.width);
+                    console.log(e.height);
+                    console.log(e.rotate);
+                }
+            });
+            
+
+            $("#btnCrop").on("click", function(){
+                console.log(1);
+                cropper.setDragMode("crop");
+                 console.log(2);
+            });
+
+            $("#btnMove").on("click", function(){
+                cropper.setDragMode("move");
+            });
+
+            $("#11").on("click", function(){
+                cropper.setAspectRatio(1,1);
+            });
+            $("#169").on("click", function(){
+                cropper.setAspectRatio(16,9);
+            });
+
+            $("#getCanvas").on("click", function(){
+                $("#getCroppedCanvas").html(cropper.getCroppedCanvas());
+            });
+        });
+    </script>
+</body>
+</html>

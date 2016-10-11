@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>cropper</title>
+    <link  href="./js/cropper.min.css" rel="stylesheet">
+        <style>
+        .container{float: left;width: 300px;height: 300px;}
+        .container { padding-left: 10px; box-sizing: border-box; }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="image" src="666.jpeg">
+    </div>
+    <button id="cut_img">截取图片</button>
+
+    show img<br/>
+    <img id="show_image" src=""><br/>
+    <button id="upload_img">上传图片</button>
+    <span></span>
+
+    <script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="./js/cropper.min.js"></script>
+
+    <script>
+        $image = $("#image");
+        var option = {
+            checkImageOrigin: true,
+            aspectRatio: 3 / 2,
+            autoCropArea: 0.5,
+            crop: function(data) {
+
+                // console.log(data);
+                // 出来裁切后的图片数据.
+            }
+        };
+        $image.cropper(option); //初始化cropper
+        // var dataURL = $('.container > img').cropper("getCroppedCanvas");
+        // var imgurl=dataURL.toDataURL("image/png",1.0);//这里转成base64 image，img的src可直接使用
+        // console.log(imgurl);
+        $('#cut_img').click(
+            function(){
+                var imgBase64 = $image.cropper('getCroppedCanvas').toDataURL("image/png",1.0);//获取剪裁后的图片base64
+                $("#show_image").attr('src',imgBase64);
+            }
+        );
+
+        $('#upload_img').click(
+                function(){
+                    var img_url = $("#show_image").attr('src');
+                    $.ajax({
+                        type:"post",
+                        url:"http://www.wangkongming.cn/api/img.php",
+                        data:{
+                            img_url:img_url
+                        },
+                        async:true,
+                        success:function(res){
+                            console.log(res);
+                            var img_url = '图片地址1：<p><a href="'+res.url+'" target="_blank">'+res.url+'</a></p>';
+                            $("span:last").html(img_url);
+                        },
+                        error:function(e){
+                            console.log('[LEO]出错了 => ',e);
+                        }
+                    });
+                }
+        );
+  </script>
+
+ 
+</body>
+</html>
