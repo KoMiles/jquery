@@ -23,11 +23,84 @@
 					//bootbox.alert('<i class="glyphicon glyphicon-info-sign"></i>Hello world?')//,function(result){
 					// 	result && console.log(1122);
 					// });
-					bootbox.dialog({
-						title : '错误提示',
-						message : '<h3><i class="glyphicon glyphicon-info-sign"></i>名字不能为空</h3>',
-						closeButton: true
-					});
+					// bootbox.dialog({
+					// 	title : '错误提示',
+					// 	message : '<h3><i class="glyphicon glyphicon-info-sign"></i>名字不能为空</h3>',
+					// 	closeButton: true
+					// });
+
+					// bootbox.confirm("<h3>确认删除吗？</h3>", function (result) {  
+		   //              if(result) {  
+		   //                  alert('点击了确认按钮');  
+		   //              } else {  
+		   //                  alert('点击了取消按钮');  
+		   //              }  
+		   //          }); 
+
+            // bootbox.dialog({  
+            // 	title: "提示框",  
+            //     message: '<h3><i class="glyphicon glyphicon-info-sign"></i>名字不能为空</h3>',  
+
+            //     buttons: {  
+            //         Cancel: {  
+            //             label: "取消",  
+            //             className: "btn-default",  
+            //             callback: function () {  
+            //                 alert("Cancel");  
+            //             }  
+            //         }  
+            //         , OK: {  
+            //             label: "确定",  
+            //             className: "btn-primary",  
+            //             callback: function () {  
+            //                 alert("OK");  
+            //             }  
+            //         }  
+            //     }  
+            // }); 
+
+            //alert
+	   //          bootbox.alert({  
+	   //         		title: "提示", 
+	   //         		message: '<h3><i class="glyphicon glyphicon-info-sign"></i>名字不能为空</h3>',  
+		  //           buttons: {  
+		  //              ok: {  
+		  //                   label: '知道了',  
+		  //                   className: 'btn-primary'  
+		  //               }  
+		  //           },  
+ 
+		  //           // callback: function() {  
+		  //           //     alert('关闭了alert');  
+		  //           // },  
+
+				// }); 
+
+				        bootbox.confirm({  
+					        buttons: {  
+					            confirm: {  
+					                label: '确认',  
+					                className: 'btn-primary'  
+					            },  
+					            cancel: {  
+					                label: '取消',  
+					                className: 'btn-default'  
+					            }  
+					        },  
+					        message: '<h3><i class="glyphicon glyphicon-info-sign"></i>确认删除吗？</h3>',  
+					        callback: function(result) {  
+					            if(result) {  
+					                alert('点击确认按钮了');  
+					            } else {  
+					                alert('点击取消按钮了');  
+					            }  
+					        },  
+					        title: "提示",  
+        				}); 
+
+
+
+
 				});
 			});
 
