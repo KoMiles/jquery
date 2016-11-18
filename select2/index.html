@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="chrome=1"> -->
+    <title>demo 测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+
+	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+
+	<script src="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.5/js/bootstrap.js"></script>
+	<link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
+	
+	<link href="http://cdn.bootcss.com/select2/4.0.3/css/select2.css" rel="stylesheet">
+	<script src="http://cdn.bootcss.com/select2/4.0.3/js/select2.js"></script>
+</head>
+<body>
+
+<label for="id_label_single">
+  请选择
+
+    <select style="width:300px;" class="js-example-basic-single js-states form-control" id="page_type">
+
+    	
+    	<option value="index">a首页标题</option>
+        <option value="2">a底部</option>
+        <option value="3">c中午</option>
+        <option value="4">b去哪里了</option>
+        <option value="5">b模式</option>
+    </select>
+</label>
+
+
+
+	<script type="text/javascript">
+
+			$(function(){
+				//@设置默认值
+				// $("select").select2({
+				//   tags: "true",
+				//   placeholder: "Select an option",
+				//   allowClear: true
+				// });
+
+				var page_type = $("#page_type").select2({
+				
+				});
+				// console.log(page_type.val());
+				page_type.val("CA").trigger("change");
+
+			});
+
+	</script>
+</body>
+
