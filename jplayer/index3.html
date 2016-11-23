@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>demo 测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+	<script src="http://cdn.bootcss.com/jplayer/2.9.2/jplayer/jquery.jplayer.js"></script>
+	<style type="text/css">
+		.video
+		{
+			width: 600px;
+			height: 300px;
+			border: 1px solid blue;
+		}
+	</style>
+
+</head>
+<body>
+    <div id="jpId"></div>
+
+    <button id="gotoPlay">点击播放</button>
+    <button id="gotoPause">点击暂停</button>
+	<script type="text/javascript">
+
+			$(function(){
+
+				$("#jpId").jPlayer( {
+					  ready: function() { // The $.jPlayer.event.ready event
+					    $(this).jPlayer("setMedia", { // Set the media
+					      m4v: "http://n3-q.mafengwo.net/s9/M00/A9/D1/wKgBs1gan1qAG70PARSQeSbHDT8721.mp4"
+					    }); // Attempt to auto play the media
+					  },
+					  play: function(){
+					  	console.log(2);
+					  },
+					  ended: function() { // The $.jPlayer.event.ended event
+					    $(this).jPlayer("play"); // Repeat the media
+					  },
+
+					  supplied: "m4v"
+				});
+	 			var window_w = $(window).width();
+				var window_h = $(window).height();
+				console.log(window_w,window_h);
+				 //直接跳到第10s
+				$("#gotoPlay").click( function() {
+				   $("#jpId").jPlayer("play");
+				   $("#jpId").jPlayer({
+				   		// size:{
+				     //        width: "1550px",
+				     //        height: "1090px"
+				     //    },
+							fullScreen : true,
+				        // sizeFull :{
+					       //      width: window_w + "px",
+					       //      height: window_h + "px"
+				        // }
+				   });
+				});
+				//暂停
+				$("#gotoPause").click( function() {
+				   $("#jpId").jPlayer("pause");
+				});
+
+
+
+ 			});
+
+	</script>
+
+</body>
+
