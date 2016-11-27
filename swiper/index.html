@@ -8,15 +8,19 @@
 
 	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
 	<script src="http://cdn.bootcss.com/Swiper/3.4.0/js/swiper.jquery.min.js"></script>
+	<link href="http://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
 	<style type="text/css">
-		.swiper-container {
-		    width: 600px;
-		    height: 300px;
-		}  
-		#show div{
+		.swiper-container, .swiper-slide {
+		  width: 500px;
+		  height: 200px;
+		  border: 1px solid pink;
+		}
+/*		#show div{
 			border: 1px solid blue;
 			margin-top: 5px;
-		}
+			width: 400px;
+			height: 300px;
+		}*/
 	</style>
 </head>
 <body>
@@ -38,12 +42,15 @@
     <!-- <div class="swiper-scrollbar"></div> -->
 </div>
 
-
+<p>官方文档：<a href="http://www.swiper.com.cn/api/index.html" target="_blank">http://www.swiper.com.cn/api/index.html</a></p>
 	<script>        
 	  var mySwiper = new Swiper ('.swiper-container', {
-	    direction: 'vertical',
+	    direction: 'vertical',//slide的滑动方向，可设置水平(horizontal)或垂直(vertical)。默认是水平
 	    loop: true,
-	    
+	    initialSlide :1,//初始化时，slide的索引，默认是0
+	    autoplay: 2000,//可选选项，自动滑动
+	    // speed:3000;//滑动速度，自开始滑动到结束的时间,默认是300
+	    // autoplayDisableOnInteraction : false;
 	    // // 如果需要分页器
 	    // pagination: '.swiper-pagination',
 	    
