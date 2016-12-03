@@ -38,20 +38,25 @@
 
   <script type="text/javascript">
   window.onload = function(){
-
       var oBox = document.getElementById('box');
       oBox.onmouseover = function(){
-        startMove(10,0);
+        startMove(0);
       }
       oBox.onmouseout = function(){
-        startMove(-10,-200);
+        startMove(-200);
       }
 
       var timer  = null;
-      function startMove(speed,target){
+      function startMove(target){
         clearInterval(timer);
         var oBox = document.getElementById('box');
         timer = setInterval(function(){
+          var speed = 0;
+            if(oBox.offsetLeft < target){
+                speed = 10;
+            }else{
+                speed = -10;
+            }
             if(oBox.offsetLeft == target) {
                 clearInterval(timer);
             } else {
@@ -63,10 +68,6 @@
 
 
   }
-
-
-
-
   </script>
 </body>
 </html>
