@@ -13,7 +13,7 @@
   background-color: pink;
   float: left;
   position: absolute;
-  left: -210px;
+  left: -200px;
 }
 #small_box{
   width: 20px;
@@ -51,12 +51,11 @@
         clearInterval(timer);
         var oBox = document.getElementById('box');
         timer = setInterval(function(){
-          var speed = 0;
-            if(oBox.offsetLeft < target){
-                speed = 10;
-            }else{
-                speed = -10;
-            }
+
+          var speed = (target-oBox.offsetLeft)/20;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+          console.log(speed);
+
             if(oBox.offsetLeft == target) {
                 clearInterval(timer);
             } else {
