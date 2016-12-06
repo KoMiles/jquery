@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+<title>JavaScript多物体动画效果</title>
+<!-- <script src="http://cdn.bootcss.com/vue/2.1.3/vue.js"></script> -->
+<script src="./vue.js"></script>
+
+
+<style type="text/css">
+</style>
+</head>
+<body>
+  <h2>Vue hello world</H2>
+  <div id="app">
+  <p>{{ message }}</p>
+</div>
+<div id="app-2">
+  <span v-bind:title="tip">
+    Hover your mouse over me for a few seconds to see my dynamically bound title!
+  </span>
+</div>
+
+<div id="app-3">
+  <p v-if="seen">Now you see me</p>
+</div>
+
+<div id="app-4">
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.text}},{{todo.num}}
+    </li>
+  </ol>
+</div>
+
+<div id="app-5">
+  <p>{{ message }}</p>
+  <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+
+</body>
+<script type="text/javascript">
+
+  new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue.js!'
+    }
+  });
+
+  var app2 = new Vue({
+    el: '#app-2',
+    data: {
+      message: 'hahah You loaded this page on ' + new Date(),
+      tip : '哈哈哈哈哈哈',
+    }
+  })
+
+  var app3 = new Vue({
+  el: '#app-3',
+  data: {
+    seen: false
+  }
+  })
+
+  var app4 = new Vue({
+    el: '#app-4',
+    data: {
+      todos: [
+        { text: 'Learn JavaScript',num:1 },
+        { text: 'Learn Vue',num:2  },
+        { text: 'Build something awesome' ,num:3 },
+        { text: 'Build something awesome' ,num:4 }
+      ]
+    }
+  })
+
+  var app5 = new Vue({
+    el: '#app-5',
+    data: {
+      message: 'Hello Vue.js!'
+    },
+    methods: {
+      reverseMessage: function () {
+        console.log(this.message);
+        this.message = this.message.split('').reverse().join('')
+      }
+    }
+  })
+
+  app2;
+  app3;
+  app4;
+  app5;
+  </script>
+</html>

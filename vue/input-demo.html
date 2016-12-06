@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+<title>JavaScript多物体动画效果</title>
+<script src="./vue.js"></script>
+
+
+<style type="text/css">
+</style>
+</head>
+<body>
+  <h3>Vue demo</h3>
+<div id="demo">
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <br>
+    <span id="demo">Checked names: {{ checkedNames }}</span>
+</div>
+
+<div id="demo1">
+    <input v-model="message" placeholder="input message">
+    <p>Message is: {{ message }}</p>
+</div>
+
+<div id="demo2">
+    <span>Multiline message is:</span>
+    <p style="white-space: pre">{{ message }}</p>
+    <br>
+    <textarea v-model="message" placeholder="add multiple lines"></textarea>
+</div>
+
+<div id="demo3">
+    
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">{{ checked }}</label>
+
+</div>
+</body>
+<script type="text/javascript">
+var demo = new Vue({
+  el: '#demo',
+  data: {
+    checkedNames: []
+  }
+})
+
+var demo1 = new Vue({
+    el:'#demo1',
+    data :{
+        message : ''
+    }
+});
+
+var demo2 = new Vue({
+    el:'#demo2',
+    data :{
+        message : ''
+    }
+});
+
+var demo3 = new Vue({
+    el:'#demo3',
+    data :{
+        checked : 'false'
+    }
+});
+
+  </script>
+</html>
