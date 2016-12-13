@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+<title>JavaScript倒计时效果</title>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+  <h2>JavaScript倒计时抢购</h2>
+  <p>开始时间 2016-12-14 10:00:00</p>
+  <p>距离开始还有<span></span>秒</p>
+
+  <script type="text/javascript">
+  window.onload = function(){
+      showTime();
+
+
+    function showTime(){
+        var timedate= new Date("2016/12/14 10:00:00");
+        var now = new Date();
+
+        var timeLeft = parseInt((timedate.getTime() - now.getTime())/1000);
+
+        var d = parseInt(timeLeft/(60*60*24));
+
+        var h = parseInt(timeLeft/(60*60)%24);
+
+        var i = parseInt(timeLeft/60%60);
+
+        var s = parseInt(timeLeft%60);
+
+        var time = d+'天'+  +h+'小时'+i+'分钟'+s;
+        document.getElementsByTagName('span')[0].innerHTML = time;
+
+        setTimeout(showTime,500);
+    }
+
+    // document.getElementsByTagName('span')[0].innerHTML = dayLeft;
+
+  }
+  </script>
+</body>
+</html>

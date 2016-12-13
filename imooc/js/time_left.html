@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+<title>JavaScript倒计时效果</title>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+  <h2>JavaScript倒计时差效果</h2>
+  <p></p>
+
+  <script type="text/javascript">
+  window.onload = function(){
+    showTime();
+    var endDate = date();
+  }
+  function checkNum(num){
+    return num < 10 ? '0'+num : num;
+  }
+
+  function showTime(){
+    var ODate = new Date();
+    var y = ODate.getFullYear();
+    var m = ODate.getMonth() +1 ;
+    var d = ODate.getDate();
+    var H = ODate.getHours();
+    var i = ODate.getMinutes();
+    var s = checkNum(ODate.getSeconds());
+    var week = ODate.getDay();
+
+    var weekList = new Array(7);
+    weekList[0] = '星期日';
+    weekList[1] = '星期一';
+    weekList[2] = '星期二';
+    weekList[3] = '星期三';
+    weekList[4] = '星期四';
+    weekList[5] = '星期五';
+    weekList[6] = '星期六'; 
+
+    var time = y+'年'+m+'月'+d+'日'+  +H+':'+i+':'+s+' '+ weekList[week];
+
+    document.getElementsByTagName('p')[0].innerHTML = time;
+    setTimeout(showTime,500);
+  }
+
+  </script>
+</body>
+</html>
