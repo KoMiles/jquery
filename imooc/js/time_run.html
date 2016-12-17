@@ -25,7 +25,7 @@ function showTime(){
   var m = ODate.getMonth() +1 ;
   var d = ODate.getDate();
   var H = ODate.getHours();
-  var i = ODate.getMinutes();
+  var i = checkNum(ODate.getMinutes());
   var s = checkNum(ODate.getSeconds());
   var week = ODate.getDay();
 
