@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+<title>事件冒泡实例</title>
+</head>
+<body>
+	<div id='box'>
+		<input type="button" value="元素1" id='btn' onclick=showMessage();>
+		<input type="button" value="元素2" id='btn2'>
+		<input type="button" value="元素3" id='btn3'>
+		<a href="http://www.baidu.com/" target="_blank" id="go">跳转链接</a>
+	</div>
+
+</body>
+
+<script type="text/javascript">
+	function showMessage(){
+		alert('按钮1被点击了');
+	}
+	var oBox = document.getElementById('box');
+	oBox.onclick = function(){
+		alert('box被点击了');
+	}
+
+	var oBtn2 = document.getElementById('btn2');
+	oBtn2.onclick = function(e){
+		alert(e.type);
+		// alert('按钮2被点击了');
+	}
+	// oBtn2.onclick = null;
+
+	function showMes(e){
+		alert(e.type);
+		//阻止事件冒泡
+		e.stopPropagation();
+		// alert(e.target);
+	}
+	//DOM 2级处理程序
+	var oBtn3 = document.getElementById('btn3');
+	// oBtn3.addEventListener('click',showMes,false);
+	oBtn3.addEventListener('click',showMes,false);
+	//删除事件
+	// oBtn3.removeEventListener('click',showMes,false);
+
+	// 阻止事件的默认行为
+	var oGo = document.getElementById('go');
+	oGo.onclick = stopGo;
+	function stopGo(e){
+		//阻止事件冒泡
+		e.stopPropagation();
+		//阻止事件的默认行为
+		e.preventDefault();
+	}
+	
+</script>
+</html>
