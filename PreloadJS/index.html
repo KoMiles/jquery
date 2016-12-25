@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>demo 测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script type="text/javascript" src='http://cdn.bootcss.com/PreloadJS/0.6.0/preloadjs.min.js'></script>
+    <style type="text/css">
+    	img
+    	{
+    		width: 300px;
+
+    	}
+    </style>
+
+</head>
+<body>
+
+	<h3>CreateJs的PreloadJs使用方法</h3>
+	<p id='showProcess'></p>
+	<p id='showProcess1'></p>
+	<input type='button' value="点击" id='button'/>
+	<img src="" id = 'image1'/>
+
+	<script type="text/javascript">
+
+	//测试button按钮
+	function buttonTest(){
+		var oButton = document.getElementById('button');
+		oButton.addEventListener('click',function(e){
+			show();
+		});
+	}
+
+	function show() {
+		var oImg = document.getElementById('image1');
+		oImg.src = 'https://a1-q.mafengwo.net/s9/M00/A5/B4/wKgBs1hdDamAfLKTAAe4MXKX49U09.jpeg';
+	}
+
+
+	//预加载所有的文件
+	function preLoad() {
+		var queue = new createjs.LoadQueue();
+		queue.on("complete", handleComplete, this); //加载完成时，调用
+		queue.on("fileload", fileLoad, this);//单个文件完成时，调用，具体是第一个文件完成时调用
+		queue.on("progress", progress, this);//加载文件进度，可以设置成百分比，用于打开网页时，个性化提示
+
+		//单个文件加载
+		// queue.loadFile({id:"image1", src:"https://a1-q.mafengwo.net/s9/M00/A5/B4/wKgBs1hdDamAfLKTAAe4MXKX49U09.jpeg"});//加载单个图片文件
+		// queue.loadFile({id:'sound',src:"http://c4-q.mafengwo.net/s9/M00/1D/66/wKgBs1gFh22ABn7aABFfByM_e2Y580.ogg",type:createjs.AbstractLoader.SOUND});//加载单个音频文件,常见的类型有 mp3, ogg, or wav ，标签为<audio> </audio>
+		// queue.loadFile({id:'video',src:"http://c2-q.mafengwo.net/s9/M00/1F/24/wKgBs1g78sKAKvD8BQCUtND9m-Q361.mp4",type:createjs.AbstractLoader.VIDEO});//加载单个音频文件  常见的类型有 mp4, ts, or ogg，标签为video
+
+		//多个文件加载
+		queue.loadManifest([
+
+		 	{id: "myImage1", src:"https://a1-q.mafengwo.net/s9/M00/A5/B4/wKgBs1hdDamAfLKTAAe4MXKX49U09.jpeg"},
+		 	{id: "myImage2", src:"https://b2-q.mafengwo.net/s9/M00/A1/0E/wKgBs1hdAtqAdw5rAAel0TcGd3s38.jpeg"},
+		  	{id: "myImage3", src:"https://b3-q.mafengwo.net/s9/M00/F3/DE/wKgBs1hY_JuAB2qMAAef-5ZgacY51.jpeg"},
+			{src:"http://c2-q.mafengwo.net/s9/M00/1F/24/wKgBs1g78sKAKvD8BQCUtND9m-Q361.mp4", type:createjs.AbstractLoader.VIDEO},
+
+		]);	
+
+		// 文件加载进度
+		 function progress(e) {
+		 	var oShow = document.getElementById('showProcess');
+		 	var sShowStr = '加载进度：'+Math.floor(e.progress * 100) + '%';
+		  	oShow.innerHTML = sShowStr;
+		 }
+		// 单个文件加载完成回调
+		 function fileLoad(e) {
+		 	var oShow = document.getElementById('showProcess1');
+		    oShow.innerHTML = '单个文件完成~';
+		 }
+
+		// 文件加载完成回调
+		 function handleComplete() {
+		     var oShow = document.getElementById('showProcess1');
+		     oShow.innerHTML = '文件全部加载完';
+		 }
+	}
+
+	//预加载文件
+	preLoad();
+	buttonTest();
+
+	</script>
+</body>
+
