@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="chrome=1"> -->
+    <title>滑动效果 Swiper 插件测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+	<script src="http://cdn.bootcss.com/Swiper/3.4.0/js/swiper.jquery.min.js"></script>
+	<link href="http://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
+	<style type="text/css">
+		.box1 {
+			float: left;
+		}
+		.box2 {
+			float: left;
+		}
+		.swiper-container, .swiper-slide {
+		  width: 500px;
+		  height: 200px;
+		  border: 1px solid pink;
+		}
+		.swiper-container, .swiper-slide {
+		  width: 500px;
+		  height: 200px;
+		  border: 1px solid pink;
+		}
+		.show div{
+			border: 1px solid blue;
+			margin-top: 5px;
+			width: 400px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+<h3>onTouchStart,onTouchMove,onTouchEnd使用</h3>
+<div class="box1">
+	<div class="swiper-container">
+	    <div class="show swiper-wrapper">
+	        <div class="swiper-slide">Slide 1</div>
+	        <div class="swiper-slide">Slide 2</div>
+	        <div class="swiper-slide">Slide 3</div>
+	        <div class="swiper-slide">Slide 4</div>
+	        <div class="swiper-slide">Slide 5</div>
+	        <div class="swiper-slide">Slide 6</div>
+	    </div>
+	    <!-- 如果需要分页器 -->
+	    <div class="swiper-pagination"></div>
+	    
+	    <!-- 如果需要导航按钮 -->
+	    <div class="swiper-button-prev"></div>
+	    <div class="swiper-button-next"></div>
+	    
+	    <!-- 如果需要滚动条 -->
+	    <!-- <div class="swiper-scrollbar"></div> -->
+	</div>
+</div>
+
+<div class="box2">
+	<div class="swiper-container">
+	    <div class="show swiper-wrapper">
+	        <div class="swiper-slide">Slide 1</div>
+	        <div class="swiper-slide">Slide 2</div>
+	        <div class="swiper-slide">Slide 3</div>
+	        <div class="swiper-slide">Slide 4</div>
+	        <div class="swiper-slide">Slide 5</div>
+	        <div class="swiper-slide">Slide 6</div>
+	    </div>
+	    <!-- 如果需要分页器 -->
+	    <div class="swiper-pagination"></div>
+	    
+	    <!-- 如果需要导航按钮 -->
+	    <div class="swiper-button-prev"></div>
+	    <div class="swiper-button-next"></div>
+	    
+	    <!-- 如果需要滚动条 -->
+	    <!-- <div class="swiper-scrollbar"></div> -->
+	</div>
+</div>
+
+
+<p>官方文档：<a href="http://www.swiper.com.cn/api/index.html" target="_blank">http://www.swiper.com.cn/api/index.html</a></p>
+
+<div>
+	<p>onTouchStart(swiper, event)回调函数，当碰触到slider时执行。可选Swiper和touchstart事件作为参数。</p>
+
+	<p>onTouchMove(swiper, event) ,回调函数，手指触碰Swiper并滑动（手指）时执行。此时slide不一定会发生移动，比如你手指的移动方向和swiper的切换方向垂直时</p>
+
+	<p>onTouchEnd(swiper, event) ,回调函数，当释放slider时执行。（释放即执行）</p>
+
+</div>
+	<script>        
+	  var mySwiper = new Swiper ('.box1 .swiper-container', {
+	    //direction: 'vertical',//slide的滑动方向，可设置水平(horizontal)或垂直(vertical)。默认是水平
+	    loop: true,
+	    initialSlide :1,//初始化时，slide的索引，默认是0
+	    autoplay: 2000,//可选选项，自动滑动
+	    speed:1000,//滑动速度，自开始滑动到结束的时间,默认是300
+	    // autoplayDisableOnInteraction : false;
+	    // 如果需要分页器
+	    pagination: '.swiper-pagination',
+	    
+	    // 如果需要前进后退按钮
+	    nextButton: '.swiper-button-next',
+	    prevButton: '.swiper-button-prev',
+	    
+	    onTouchStart:function(){
+	    	console.log(1);
+	    },
+	  })
+
+	  var mySwiper2 = new Swiper ('.box2 .swiper-container', {
+	    //direction: 'vertical',//slide的滑动方向，可设置水平(horizontal)或垂直(vertical)。默认是水平
+	    loop: true,
+	    initialSlide :1,//初始化时，slide的索引，默认是0
+	    autoplay: 2000,//可选选项，自动滑动
+	    speed:3000,//滑动速度，自开始滑动到结束的时间,默认是300
+	    // autoplayDisableOnInteraction : false;
+	    // 如果需要分页器
+	    pagination: '.swiper-pagination',
+	    paginationClickable: true,//点击分页时，可以控制切换
+	    // 如果需要前进后退按钮
+	    nextButton: '.swiper-button-next',
+	    prevButton: '.swiper-button-prev',
+
+	   	// onTouchMove:function(){
+	    // 	console.log(2);
+	    // },
+	    onTouchEnd:function(){
+	    	console.log('over');
+	    }
+	  })
+          
+  	</script>
+</body>
+
