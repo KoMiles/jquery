@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="chrome=1"> -->
+    <title>滑动效果 Swiper 插件测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+	<script src="http://cdn.bootcss.com/Swiper/3.4.0/js/swiper.jquery.min.js"></script>
+	<link href="http://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <section class="homestay">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <img src="http://css130.mafengwo.net/mobile/images/activity/xiaozhu/1.jpg" alt="" >
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="http://css130.mafengwo.net/mobile/images/activity/xiaozhu/2.jpg" alt="" >
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="http://css130.mafengwo.net/mobile/images/activity/xiaozhu/3.jpg" alt="" >
+                </div>
+
+        	</div>
+	        	    <!-- 如果需要导航按钮 -->
+		    <!-- <div class="swiper-button-prev"></div> -->
+		    
+	    </div>
+	    <div class="swiper-button-next"></div>
+    </section>
+</div>
+	<script>        
+var num = $('.homestay .swiper-slide').length;
+var swiper1 = new Swiper('.homestay .swiper-container', {
+    onlyExternal : true,
+    // nextButton: '.homestay .btnNext',
+	    // 如果需要前进后退按钮
+	nextButton: '.swiper-button-next',
+	// prevButton: '.swiper-button-prev',
+    onSlideChangeStart: function(swiper){
+        if(swiper.activeIndex == num-1){
+            $('.homestay .btnNext').css('display','none');
+        }
+    }
+}); 
+  	</script>
+</body>
+

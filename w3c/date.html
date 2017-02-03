@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> javascript 日期函数</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script>
+  $( function() {
+    var oDate = new Date();
+    var yearNow = oDate.getFullYear();
+    var monthNow = oDate.getMonth()+1;
+    var dateNow = oDate.getDate();
+    var hoursNow = oDate.getHours();
+    var minutesNow = oDate.getMinutes();
+    var secondsNow = oDate.getSeconds();
+    var showTime = yearNow+'-'+monthNow+'-'+dateNow+' ' +hoursNow + ':' + minutesNow + ':' + secondsNow;
+    console.log(oDate.getTime());
+    $( "#show span").html(showTime);
+  } );
+  </script>
+</head>
+<body>
+  
+ <div id="show">
+ <h3>显示时间</h3>
+ <span></span>
+ </div>
+ 
+</body>
+</html>
