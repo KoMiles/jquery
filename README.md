@@ -1,6 +1,6 @@
 #### Jquery学习
 - 环境配置 16-09-18
-- 在github上新建一个项目jquery
+- 在github上新建一个项目jquery1
 - 在目录中执行下面代码
 ```
 echo "# jquery" >> README.md
