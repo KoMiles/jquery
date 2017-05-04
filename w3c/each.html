@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Tabs - Default functionality</title>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+ 
+<div >
+  <ul id="TryOpen">
+    <li data-id="test"><a href="#tabs-1">Nunc tincidunt</a></li>
+    <li><a href="#tabs-2">Proin dolor</a></li>
+    <li><a href="#tabs-3">Aenean lacinia</a></li>
+  </ul>
+</div>
+ <script type="text/javascript">
+    // $("#TryOpen li").each(function() {
+    //     console.log($(this).data("id"));
+    // });
+
+  var lis = $("#TryOpen li");
+  var lisLen = lis.length;
+  for (var i = 0; i < lisLen; i++) {
+    console.log($(lis[i]).data("id"));
+  }
+ </script>
+ 
+</body>
+</html>
